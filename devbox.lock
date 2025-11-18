@@ -1,0 +1,104 @@
+{
+  "lockfile_version": "1",
+  "packages": {
+    "binutils": {
+      "resolved": "github:NixOS/nixpkgs/5929de975bcf4c7c8d8b5ca65c8cd9ef9e44523e?narHash=sha256-BHmgfHlCJVNisJShVaEmfDIr%2FIp58i%2F4oFGlD1iK6lk%3D#binutils",
+      "source": "nixpkg"
+    },
+    "github:NixOS/nixpkgs/nixpkgs-unstable": {
+      "last_modified": "2025-06-01T15:36:18Z",
+      "resolved": "github:NixOS/nixpkgs/5929de975bcf4c7c8d8b5ca65c8cd9ef9e44523e?lastModified=1748792178&narHash=sha256-BHmgfHlCJVNisJShVaEmfDIr%2FIp58i%2F4oFGlD1iK6lk%3D"
+    },
+    "gradle@6": {
+      "last_modified": "2021-04-12T08:34:02Z",
+      "plugin_version": "0.0.1",
+      "resolved": "github:NixOS/nixpkgs/dce8fc727dc2891628e4f878bb18af643b7b255d#gradle",
+      "source": "devbox-search",
+      "version": "6.8.3"
+    },
+    "jdk@11": {
+      "last_modified": "2025-05-16T20:19:48Z",
+      "resolved": "github:NixOS/nixpkgs/12a55407652e04dcf2309436eb06fef0d3713ef3#jdk11",
+      "source": "devbox-search",
+      "version": "11.0.24",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/v1kpn95454ni5hxagda0kn9xcs0qlz3x-zulu-ca-jdk-11.0.24",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/v1kpn95454ni5hxagda0kn9xcs0qlz3x-zulu-ca-jdk-11.0.24"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/skkjhg37740s304q0cx492158gqcg44g-zulu-ca-jdk-11.0.24",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/skkjhg37740s304q0cx492158gqcg44g-zulu-ca-jdk-11.0.24"
+        }
+      }
+    },
+    "kubectl": {
+      "resolved": "github:NixOS/nixpkgs/5929de975bcf4c7c8d8b5ca65c8cd9ef9e44523e?narHash=sha256-BHmgfHlCJVNisJShVaEmfDIr%2FIp58i%2F4oFGlD1iK6lk%3D#kubectl",
+      "source": "nixpkg"
+    },
+    "kubernetes-helm-wrapped@latest": {
+      "last_modified": "2025-05-16T20:19:48Z",
+      "resolved": "github:NixOS/nixpkgs/12a55407652e04dcf2309436eb06fef0d3713ef3#kubernetes-helm-wrapped",
+      "source": "devbox-search",
+      "version": "3.17.3",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/hzy5w7dzcjgl25qhvnlaq6a495ns98yp-helm-3.17.3",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/hzy5w7dzcjgl25qhvnlaq6a495ns98yp-helm-3.17.3"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/yhvsia58zjxagkivxc5v56jkw8sl49kb-helm-3.17.3",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/yhvsia58zjxagkivxc5v56jkw8sl49kb-helm-3.17.3"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/gcdjzgcm6i0ibf485697rwd0f12s5xyq-helm-3.17.3",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/gcdjzgcm6i0ibf485697rwd0f12s5xyq-helm-3.17.3"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/ih5m6g033nspbvg80hypv4aqpxgwrkjz-helm-3.17.3",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/ih5m6g033nspbvg80hypv4aqpxgwrkjz-helm-3.17.3"
+        }
+      }
+    },
+    "minikube": {
+      "resolved": "github:NixOS/nixpkgs/5929de975bcf4c7c8d8b5ca65c8cd9ef9e44523e?narHash=sha256-BHmgfHlCJVNisJShVaEmfDIr%2FIp58i%2F4oFGlD1iK6lk%3D#minikube",
+      "source": "nixpkg"
+    }
+  }
+}
