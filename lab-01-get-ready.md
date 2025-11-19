@@ -2,16 +2,20 @@
 
 ## Learning Goals
 
-- Create a Kosli account and understand the platform basics
+- Create a Kosli account
 - Fork and set up the sample application repository
 - Verify that the CI/CD pipeline runs successfully
 - Understand the basic structure of the application and its deployment process
 
 ## Introduction
 
-Kosli is a DevOps platform that provides visibility and compliance for your software supply chain. It tracks changes throughout your development and deployment pipeline, recording what was built, tested, and deployed. Before diving into Kosli's features, you need to set up your account and verify that your sample application builds and deploys correctly.
+Welcome to the first lab!
 
-This lab uses a simple Java Micronaut application with a complete CI/CD pipeline already configured in GitHub Actions. The pipeline builds the application, creates a Docker image, runs tests, and deploys it. In subsequent labs, you'll integrate Kosli to track all these activities.
+Before diving into Kosli's features, you need to set up your account and verify that your sample application builds and deploys correctly.
+
+This lab uses a simple [Java Micronaut application](app) with a complete CI/CD pipeline already configured in GitHub Actions. The pipeline builds the application, creates a Docker image, runs tests, and deploys it.
+
+In subsequent labs, you'll integrate Kosli to track all these activities.
 
 ## Prerequisites
 
