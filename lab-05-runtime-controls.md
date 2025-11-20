@@ -74,15 +74,15 @@ Let's create an environment to represent where your application runs:
 
 ```bash
 # Create a Docker environment
-kosli create environment kosli-tryout-prod \
+kosli create environment labs-prod \
   --type docker \
-  --description "Production environment for kosli-tryout application"
+  --description "Production environment for labs application"
 
 # Verify it was created
-kosli get environment kosli-tryout-prod
+kosli get environment labs-prod
 ```
 
-Visit [app.kosli.com](https://app.kosli.com), navigate to Environments, and you should see `kosli-tryout-prod` listed (currently with no snapshots).
+Visit [app.kosli.com](https://app.kosli.com), navigate to Environments, and you should see `labs-prod` listed (currently with no snapshots).
 
 See [kosli create environment](https://docs.kosli.com/client_reference/kosli_create_environment/) for more details.
 
@@ -95,11 +95,11 @@ When you take a snapshot, Kosli records what's running. Let's do this manually f
 docker-compose up -d
 
 # Take a snapshot of running containers
-kosli snapshot docker kosli-tryout-prod \
+kosli snapshot docker labs-prod \
   --docker-host unix:///var/run/docker.sock
 
 # View the snapshot
-kosli get snapshot kosli-tryout-prod --output json
+kosli get snapshot labs-prod --output json
 ```
 
 > :bulb: The `--docker-host` flag tells Kosli where to find Docker. On Linux/macOS, it's typically `unix:///var/run/docker.sock`. On Windows, it might be `npipe:////./pipe/docker_engine` or you may need Docker Desktop configured for TCP access.
@@ -118,7 +118,7 @@ See [kosli snapshot docker](https://docs.kosli.com/client_reference/kosli_snapsh
 
 In the Kosli web interface:
 
-1. Navigate to Environments → kosli-tryout-prod
+1. Navigate to Environments → labs-prod
 2. Click on the latest snapshot
 3. You should see:
    - **Running artifacts**: The Docker image(s) currently running
@@ -174,10 +174,10 @@ Now attach the policy to enforce it:
 
 ```bash
 kosli attach policy kosli-prod-requirements \
-  --environment kosli-tryout-prod
+  --environment labs-prod
 
 # Verify attachment
-kosli get environment kosli-tryout-prod
+kosli get environment labs-prod
 ```
 
 Attaching the policy automatically triggers a new snapshot evaluation. Kosli will check if currently running artifacts meet the policy requirements.
@@ -188,7 +188,7 @@ See [kosli attach policy](https://docs.kosli.com/client_reference/kosli_attach_p
 
 Return to the Kosli web interface:
 
-1. Navigate to Environments → kosli-tryout-prod
+1. Navigate to Environments → labs-prod
 2. Look at the latest snapshot
 3. Check the compliance status:
    - **Compliant**: Green - all requirements met
@@ -215,7 +215,7 @@ echo "Taking snapshot of production environment..."
 
 # Snapshot the Docker environment
 # In CI, we're snapshotting the container that was just started
-kosli snapshot docker kosli-tryout-prod \
+kosli snapshot docker labs-prod \
   --docker-host unix:///var/run/docker.sock
 
 echo "Environment snapshot completed"
@@ -252,7 +252,7 @@ kosli create policy kosli-prod-requirements \
 
 # Attach to environment (idempotent)
 kosli attach policy kosli-prod-requirements \
-  --environment kosli-tryout-prod || true
+  --environment labs-prod || true
 
 echo "Policy updated successfully"
 ```
@@ -327,7 +327,7 @@ You can use policies as deployment gates to prevent non-compliant artifacts from
 ```bash
 # Check if an artifact is compliant before deployment
 kosli assert artifact ghcr.io/${IMAGE}:latest \
-  --environment kosli-tryout-prod \
+  --environment labs-prod \
   --fingerprint $(kosli fingerprint docker ghcr.io/${IMAGE}:latest)
 
 # Or assert against specific policies
@@ -368,7 +368,7 @@ See [Policy expressions](https://docs.kosli.com/getting_started/policies/#policy
 
 Before completing this lab, ensure you have:
 
-- ✅ Created a `kosli-tryout-prod` environment of type `docker`
+- ✅ Created a `labs-prod` environment of type `docker`
 - ✅ Successfully taken a manual snapshot of running containers
 - ✅ Created a `.kosli-policy.yml` file with compliance requirements
 - ✅ Created the policy in Kosli and attached it to your environment

@@ -31,71 +31,67 @@ In subsequent labs, you'll integrate Kosli to track all these activities.
 In this lab, you will:
 
 - Create a free Kosli account
-- Fork the kosli-tryout repository to your GitHub account
+- Fork the labs repository to your GitHub account
 - Enable GitHub Actions on your forked repository
 - Verify that the pipeline runs successfully and produces artifacts
 - Observe the application deployment process
 
 ### Step-by-step instructions
 
-<details>
-<summary>More Details</summary>
-
 #### Create a Kosli account
 
-1. Navigate to [https://kosli.com](https://kosli.com)
-2. Click on "Sign Up" or "Get Started"
-3. Choose to sign up with GitHub (recommended) or email
-4. Complete the registration process
-5. Verify your email address if required
-6. Log in to [https://app.kosli.com](https://app.kosli.com)
-7. Create or join an organization when prompted
-   - Organization name should be unique and memorable
-   - This will be used in future labs to track your artifacts
+- Navigate to [kosli.com/sign-up]<https://app.kosli.com/sign-up>)
+- Choose to sign up with GitHub
+- Complete the registration process
+- Verify your email address if required
+- Log in to [https://app.kosli.com](https://app.kosli.com)
 
-> :bulb: Keep your organization name handy - you'll need it in later labs when configuring Kosli CLI commands.
+#### Make a copy of the repository
 
-#### Fork the repository
+- Navigate to the labs repositorys main page (the repository you're currently viewing)
+- Click the "Use this template" button in the top-right corner of the page
+- Select your personal GitHub account as the destination
+- Wait for GitHub to complete the copy process
+- You should now have a copy at `https://github.com/YOUR-GITHUB-USERNAME/labs`
 
-1. Navigate to the kosli-tryout repository (the repository you're currently viewing)
-2. Click the "Fork" button in the top-right corner of the page
-3. Select your personal GitHub account as the destination
-4. Wait for GitHub to complete the fork process
-5. You should now have a copy at `https://github.com/YOUR-USERNAME/kosli-tryout`
-
-> :bulb: Ensure you fork to your personal account, not to an organization, for easier management in this tutorial.
+> :bulb: From now on the term "your repository" will mean your copy of the labs repository.
 
 #### Enable GitHub Actions and configure secrets
 
-1. Go to your forked repository on GitHub
+1. Go to your repository on GitHub
 2. Click on the "Actions" tab
 3. If prompted, click "I understand my workflows, go ahead and enable them"
-4. The workflow should start automatically, or you can trigger it manually:
+4. The workflow should start automatically, if not, you can trigger it manually:
    - Click on "Main workflow" in the left sidebar
    - Click "Run workflow" button on the right
    - Select the branch (usually `main`) and click "Run workflow"
 
-> :bulb: GitHub Actions is enabled by default on forks, but you need to explicitly allow workflows to run on your fork for security reasons.
-
 #### Verify the pipeline execution
 
-1. In the "Actions" tab, click on the most recent workflow run
-2. Observe the workflow jobs:
-   - **Build**: Compiles the Java application using Gradle
-   - **Linting**: Checks code quality (may show warnings)
-   - **Docker-image**: Builds and pushes a Docker container image
-   - **Security-scan**: Scans the Docker image for vulnerabilities
-   - **Component-test**: Runs integration tests
-   - **Performance-test**: Runs basic performance checks
-   - **Deploy**: Starts and stops the application container
-3. Wait for all jobs to complete (green checkmarks)
-4. If any jobs fail, review the logs to understand what went wrong
+- In the "Actions" tab, click on the most recent workflow run
+- Observe the workflow jobs:
+  - **Build**: Compiles the Java application using Gradle
+  - **Linting**: Checks code quality (may show warnings)
+  - **Docker-image**: Builds and pushes a Docker container image
+  - **Security-scan**: Scans the Docker image for vulnerabilities
+  - **Component-test**: Runs integration tests
+  - **Performance-test**: Runs basic performance checks
+  - **Deploy**: Starts and stops the application container
+- Wait for all jobs to complete (green checkmarks)
 
-> :bulb: The pipeline might take 5-10 minutes to complete on the first run. GitHub Actions provides free minutes for public repositories.
+![Pipeline](img\pipeline.png)
 
-Common issues:
+- If any jobs fail, review the logs to understand what went wrong
+
+> :bulb: The pipeline might take 3-6 minutes to complete on the first run. GitHub Actions provides free minutes for public repositories.
+
+<details>
+<summary>:bulb: Common issues</summary>
+
 - **Docker-image job fails with permission error**: Make sure your repository has package write permissions enabled
 - **Linting shows warnings**: This is expected and won't fail the build (DISABLE_ERRORS is set to true)
+
+</details>
 
 #### Explore the GitHub Actions workflow
 
@@ -111,20 +107,18 @@ Common issues:
 
 1. Go to your GitHub profile page
 2. Click on "Packages" tab
-3. You should see the `kosli-tryout` package
+3. You should see the `labs` package
 4. Click on it to view details about the Docker image
 5. Note the image tag (usually `latest`) and the SHA digest
 
 > :bulb: The Docker image is automatically published to GitHub Container Registry (ghcr.io) by the pipeline.
-
-</details>
 
 ### Verification Checklist
 
 Before moving to the next lab, ensure you have:
 
 - ✅ A Kosli account at app.kosli.com with an organization created
-- ✅ A forked copy of the kosli-tryout repository under your GitHub account
+- ✅ A forked copy of the labs repository under your GitHub account
 - ✅ GitHub Actions successfully completed all jobs in the workflow
 - ✅ A Docker image published to your GitHub Container Registry
 - ✅ Understanding of the basic pipeline structure

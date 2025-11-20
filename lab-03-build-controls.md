@@ -26,7 +26,7 @@ Each attestation is linked to a Trail and optionally to a specific artifact. Thi
 
 - Completed [Lab 2: Flows and Trails](lab-02-flows-and-trails.md)
 - Kosli CLI installed and configured
-- Your forked kosli-tryout repository with Flow and Trail creation working
+- Your forked labs repository with Flow and Trail creation working
 - Understanding of your application's build process
 
 ## Exercise
@@ -254,7 +254,7 @@ git push origin main
 #### View attestations in Kosli
 
 1. Log in to [app.kosli.com](https://app.kosli.com)
-2. Navigate to your Flow (kosli-tryout-pipeline)
+2. Navigate to your Flow (labs-pipeline)
 3. Click on the latest Trail (your commit SHA)
 4. You should see:
    - **Artifacts**: The JAR file and Docker image with their fingerprints

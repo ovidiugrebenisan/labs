@@ -25,17 +25,12 @@ a drop-down section</summary>
 
 ### Step-by-step instructions
 
-<details>
-<summary>More Details</summary>
-
 > **NOTE**: Take **the same bullet names as above** and put them in to illustrate how far the
 > student has gone. Then **delete this line**.
 
 - All actions that you believe the student should do should be in a bullet point
 
 > :bulb: Help can be illustrated with bulbs in order to make it easy to distinguish.
-
-</details>
 
 ### Clean up
 

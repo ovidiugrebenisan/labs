@@ -22,7 +22,7 @@ Think of a Flow as a template for your process, and Trails as the individual ins
 
 - Completed [Lab 1: Get Ready](lab-01-get-ready.md)
 - A Kosli account with an organization created
-- Your forked kosli-tryout repository
+- Your forked labs repository
 - Command line access (local terminal or GitHub Codespace)
 
 ## Exercise
@@ -136,12 +136,12 @@ First, let's create a Flow manually to understand the concept:
 
 ```bash
 # Create a Flow with an empty template
-kosli create flow kosli-tryout-pipeline \
-  --description "CI/CD pipeline for kosli-tryout application" \
+kosli create flow labs-pipeline \
+  --description "CI/CD pipeline for labs application" \
   --use-empty-template
 
 # Verify the Flow was created
-kosli get flow kosli-tryout-pipeline
+kosli get flow labs-pipeline
 ```
 
 > :bulb: The `--use-empty-template` flag creates a Flow without compliance requirements. In Lab 3, you'll learn how to add a template with specific attestation requirements.
@@ -156,16 +156,16 @@ A Trail represents one execution of your process. Let's create a Trail using you
 
 ```bash
 # Navigate to your repository directory
-cd /path/to/your/kosli-tryout
+cd /path/to/your/labs
 
 # Begin a Trail using the current git commit SHA
 kosli begin trail $(git rev-parse HEAD) \
-  --flow kosli-tryout-pipeline \
+  --flow labs-pipeline \
   --description "Manual trail for testing"
 
 # Verify the Trail was created
 kosli get trail $(git rev-parse HEAD) \
-  --flow kosli-tryout-pipeline
+  --flow labs-pipeline
 ```
 
 The Trail name is the git commit SHA, which uniquely identifies this execution. This allows Kosli to connect all activities (builds, tests, deployments) that happen for this specific commit.
