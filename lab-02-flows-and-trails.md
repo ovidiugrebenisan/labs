@@ -70,28 +70,9 @@ kosli version
 <summary>Bash</summary>
 
 ```bash
-# Set environment variables (Linux/macOS/Codespace)
+# Set environment variables
 export KOSLI_API_TOKEN="your-api-key-here"
 export KOSLI_ORG="your-gh-username"
-
-# Add to your shell profile for persistence (~/.bashrc or ~/.zshrc)
-echo 'export KOSLI_API_TOKEN="your-api-key-here"' >> ~/.bashrc
-echo 'export KOSLI_ORG="your-gh-username"' >> ~/.bashrc
-```
-
-</details>
-
-<details> 
-<summary>Powershell</summary>
-
-```powershell
-# Set environment variables (Windows PowerShell)
-$env:KOSLI_API_TOKEN="your-api-key-here"
-$env:KOSLI_ORG="your-gh-username"
-
-# For persistence, set user environment variables
-[System.Environment]::SetEnvironmentVariable('KOSLI_API_TOKEN', 'your-api-key-here', 'User')
-[System.Environment]::SetEnvironmentVariable('KOSLI_ORG', 'your-gh-username', 'User')
 ```
 
 </details>
@@ -110,6 +91,18 @@ kosli create flow labs-pipeline \
 
 # Verify the Flow was created
 kosli get flow labs-pipeline
+```
+
+You should see something like the following returned:
+
+```bash
+Name:                labs-pipeline
+Description:         CI/CD pipeline for labs application
+Visibility:          private
+Template:            
+                     version: 1
+Last Deployment At:  N/A
+Tags:                None
 ```
 
 > :bulb: The `--use-empty-template` flag creates a Flow without compliance requirements. In Lab 3, you'll learn how to add a template with specific attestation requirements.
@@ -137,7 +130,13 @@ The Trail name is the git commit SHA, which uniquely identifies this execution. 
 
 > :bulb: You can use any naming scheme for Trails (commit SHA, PR number, Jira ticket, etc.). Git commits are common because they're unique and tied to your source code.
 
+- Go to Kosli to see your new trail under your Flow called "labs-pipeline"
+
+![first trail](img\first-trail.png)
+
 See [kosli begin trail](https://docs.kosli.com/client_reference/kosli_begin_trail/) for more details and [Flows documentation](https://docs.kosli.com/getting_started/flows/) and [Trails documentation](https://docs.kosli.com/getting_started/trails/) for conceptual understanding.
+
+#TODO: Create something in the trial to see in kosli
 
 #### Create CI scripts for Flow and Trail management
 
