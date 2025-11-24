@@ -3,7 +3,10 @@
   "packages": [
     "gradle@6",
     "jdk@11",
-    "binutils"
+    "binutils",
+    "git",
+    "curl",
+    "jq"
   ],
     "shell": {
       "init_hook": [
