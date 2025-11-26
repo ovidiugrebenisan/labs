@@ -66,7 +66,7 @@ kosli version
 
 **Configure the API key for CLI use:**
 
-<details> 
+<details>
 <summary>Bash</summary>
 
 ```bash
@@ -136,7 +136,41 @@ The Trail name is the git commit SHA, which uniquely identifies this execution. 
 
 See [kosli begin trail](https://docs.kosli.com/client_reference/kosli_begin_trail/) for more details and [Flows documentation](https://docs.kosli.com/getting_started/flows/) and [Trails documentation](https://docs.kosli.com/getting_started/trails/) for conceptual understanding.
 
-#TODO: Create something in the trial to see in kosli
+#### Immutable trails
+
+Everything in a trail inside Kosli is immutable, with append-only as the strategy for updates.
+This is important in a compliance setting where the ability to change in data is equal to the risk of tampering with said data.
+
+To explore this feature, let's go back and begin the same trail once more.
+
+```bash
+kosli begin trail $(git rev-parse HEAD) \
+  --flow labs-pipeline \
+  --description "Manual trail for testing."
+```
+
+If this had been a mutable trail, the description would have been updated with a dot at the end, and no record of the change would have been. But try now to do the get trail once more.
+
+```bash
+kosli get trail $(git rev-parse HEAD) \
+  --flow labs-pipeline
+```
+
+The result should look like the following:
+
+```bash
+Name:              df029fec81ae14bd9dc98ce365c4d2d92d5c32ac
+Description:       Manual trail for testing.
+Compliance:        COMPLIANT
+Last modified at:  Wed, 26 Nov 2025 21:14:33 CET • 44 seconds ago
+Events:
+
+     TIME                           DESCRIPTION    GIT-COMMIT  COMPLIANCE
+     Wed, 26 Nov 2025 21:13:09 CET  trail started
+     Wed, 26 Nov 2025 21:14:33 CET  trail updated
+```
+
+You see here that every time a new event is happening in the trail, we append that to the trail for auditability purposes.
 
 #### Integrate Kosli into your CI/CD pipeline
 
