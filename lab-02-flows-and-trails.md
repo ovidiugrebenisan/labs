@@ -66,9 +66,6 @@ kosli version
 
 **Configure the API key for CLI use:**
 
-<details>
-<summary>Bash</summary>
-
 ```bash
 # Set environment variables
 export KOSLI_API_TOKEN="your-api-key-here"
