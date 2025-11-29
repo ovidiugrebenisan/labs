@@ -105,11 +105,16 @@ See [kosli attest junit](https://docs.kosli.com/client_reference/kosli_attest_ju
 
 #### Attest the Docker image
 
-After building the Docker image, attest it to Kosli by adding a step to the `Docker-image` job in `.github/workflows/full-pipeline.yaml`.
+After building the Docker image, attest it to Kosli by adding steps to the `Docker-image` job in `.github/workflows/full-pipeline.yaml`.
 
-Add this step after the "push docker" step:
+Add these steps after the "push docker" step:
 
 ```yaml
+      - name: Setup Kosli CLI
+        uses: kosli-dev/setup-cli-action@v2
+        with:
+          version:
+            2.11.32
     - name: Attest Docker image
       run: |
         IMAGE_NAME="ghcr.io/${IMAGE}:latest"
@@ -128,21 +133,29 @@ Using `--artifact-type oci` tells Kosli to fetch the image manifest directly fro
 
 #### Generate and attest SBOM
 
-Your workflow already generates an SBOM using Anchore. Let's attest it by adding a step to the `Docker-image` job in `.github/workflows/full-pipeline.yaml`.
+Your workflow already generates an SBOM using Anchore. Let's attest it by adding steps to the `Docker-image` job in `.github/workflows/full-pipeline.yaml`.
 
-Add this step after the "Generate SBOM for the docker image" step:
+Add these steps after the "Generate SBOM for the docker image" step:
 
 ```yaml
+      - name: Setup Kosli CLI
+        uses: kosli-dev/setup-cli-action@v2
+        with:
+          version:
+            2.11.32
     - name: Attest SBOM
       run: |
         IMAGE_NAME="ghcr.io/${IMAGE}:latest"
-        kosli attest sbom \
+        kosli attest generic \
           --flow ${APP_NAME}-pipeline \
           --trail ${GIT_COMMIT} \
           --name docker-image.sbom \
           --artifact-type oci ${IMAGE_NAME} \
-          --sbom sbom.spdx.json
+          --attachments sbom.spdx.json
+
 ```
+
+> :bulb: Generic attestations allow you to record any fact.
 
 The SBOM attestation is linked to the `docker-image` artifact. Kosli stores the SBOM in its Evidence Vault for future reference.
 
