@@ -167,7 +167,7 @@ If you did the optional non-compliance test, make sure to revert `flow-template.
 
 ## Next Steps
 
-In [Lab 5: Runtime Controls](lab-05-runtime-controls.md), you'll learn how to track what is actually running in your environments and enforce policies there.
+In [Lab 5: Runtime Controls](lab-05-runtime-controls.md), you'll learn how to create environments, snapshot what's running in production, and enforce compliance policies.
 
 ## Resources
 

@@ -225,13 +225,12 @@ Before moving to the next lab, ensure you have:
 - ✅ Can see SBOM attached to the Docker image artifact
 - ✅ Understand how attestations create an audit trail
 
-### Clean up
-
-No cleanup is required. Attestations are immutable records that remain for audit purposes.
+If anything did not go according to plan, you can reference our solution pipeline in [pipelines/03-complete.yaml](pipelines\03-complete.yaml)
 
 ## Next Steps
 
-In [Lab 5: Runtime Controls](lab-05-runtime-controls.md), you'll learn how to create environments, snapshot what's running in production, and enforce compliance policies.
+lab-04-release-controls.md
+In [Lab 4: Release Controls](lab-04-release-controls.md), you'll learn how to check your artifact for compliance, just before deploying it to production.
 
 ## Resources
 

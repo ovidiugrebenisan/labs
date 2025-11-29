@@ -263,9 +263,7 @@ Before moving to the next lab, ensure you have:
 - ✅ Workflow runs successfully with Flow and Trail creation
 - ✅ Can see the Flow and Trails in the Kosli web interface
 
-### Clean up
-
-No cleanup is required for this lab. Flows and Trails remain in Kosli for historical tracking and audit purposes.
+If anything did not go according to plan, you can reference our solution pipeline in [pipelines/02-complete.yaml](pipelines\02-complete.yaml)
 
 ## Next Steps
 
