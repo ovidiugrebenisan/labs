@@ -14,12 +14,13 @@
 
 **Kosli Environments** allow you to track what's actually running in your runtime environments (dev, staging, production, etc.). By taking regular **snapshots**, Kosli creates an immutable record of:
 
-- What artifacts are running
+- What artifacts are running, identified by their digest (SHA256)
 - When they started and stopped
 - Whether they're compliant with your policies
 - The complete change history over time
 
 **Policies** define compliance requirements for environments. They specify rules like:
+
 - All artifacts must have provenance (be part of a Flow)
 - All artifacts must have passed specific tests
 - All artifacts must have security scans
@@ -27,9 +28,22 @@
 
 Together, Environments and Policies provide runtime visibility and enforcement for your software supply chain.
 
+### Understanding Environment Types
+
+Kosli supports several environment types:
+
+- **docker**: Tracks Docker containers on a host
+- **k8s**: Tracks Kubernetes pods in namespaces
+- **ECS**: Tracks AWS ECS tasks
+- **Lambda**: Tracks AWS Lambda functions
+- **S3**: Tracks files in S3 buckets
+- **server**: Tracks files on a server filesystem, effectively making it possible to track any type of application runtime.
+
+See [Environments documentation](https://docs.kosli.com/getting_started/environments/) for more details.
+
 ## Prerequisites
 
-- Completed [Lab 3: Build Controls and Attestations](lab-03-build-controls.md)
+- Completed [Lab 4: Release Controls and Compliance](lab-04-release-controls.md)
 - Kosli CLI installed and configured
 - Artifacts and attestations flowing through your pipeline
 - Understanding of your deployment process
@@ -50,27 +64,9 @@ In this lab, you will:
 
 ### Step-by-step instructions
 
-<details>
-<summary>More Details</summary>
-
-#### Understanding Environment Types
-
-Kosli supports several environment types:
-
-- **docker**: Tracks Docker containers on a host
-- **k8s**: Tracks Kubernetes pods in namespaces
-- **ECS**: Tracks AWS ECS tasks
-- **Lambda**: Tracks AWS Lambda functions
-- **S3**: Tracks files in S3 buckets
-- **server**: Tracks files on a server filesystem
-
-Your application deploys as a Docker container, so you'll create a `docker` type environment.
-
-See [Environments documentation](https://docs.kosli.com/getting_started/environments/) for more details.
-
 #### Create an Environment
 
-Let's create an environment to represent where your application runs:
+Your application deploys as a Docker container, so you'll create a `docker` type environment:
 
 ```bash
 # Create a Docker environment
@@ -318,7 +314,6 @@ artifacts:
 
 See [Policy expressions](https://docs.kosli.com/getting_started/policies/#policy-expressions) for more details.
 
-</details>
 
 ### Verification Checklist
 
