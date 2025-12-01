@@ -76,6 +76,12 @@ jobs:
       with:
         name: code
         path: .
+    - name: Log in to GHCR
+      uses: docker/login-action@v3
+      with:
+        registry: ghcr.io
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
     - name: build docker
       run: bash ci/build-docker.sh
     - name: push docker
@@ -98,6 +104,12 @@ jobs:
       with:
         name: code
         path: .
+    - name: Log in to GHCR
+      uses: docker/login-action@v3
+      with:
+        registry: ghcr.io
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
     - name: Run Trivy vulnerability scanner
       uses: aquasecurity/trivy-action@master
       with:
@@ -116,6 +128,12 @@ jobs:
       with:
         name: code
         path: .
+    - name: Log in to GHCR
+      uses: docker/login-action@v3
+      with:
+        registry: ghcr.io
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
     - name: Execute component test
       run: bash ci/component-test.sh
   Performance-test:
@@ -127,6 +145,12 @@ jobs:
       with:
         name: code
         path: .
+    - name: Log in to GHCR
+      uses: docker/login-action@v3
+      with:
+        registry: ghcr.io
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
     - name: Execute performance test
       run: bash ci/performance-test.sh     
   Deploy:
@@ -138,6 +162,12 @@ jobs:
       with:
         name: code 
         path: .
+    - name: Log in to GHCR
+      uses: docker/login-action@v3
+      with:
+        registry: ghcr.io
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
     - name: Deploy to production
       run: bash ci/start-application.sh
     - name: stop production environment
