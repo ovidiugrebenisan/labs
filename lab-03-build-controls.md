@@ -110,11 +110,11 @@ After building the Docker image, attest it to Kosli by adding steps to the `Dock
 Add these steps after the "push docker" step:
 
 ```yaml
-      - name: Setup Kosli CLI
-        uses: kosli-dev/setup-cli-action@v2
-        with:
-          version:
-            2.11.32
+   - name: Setup Kosli CLI
+     uses: kosli-dev/setup-cli-action@v2
+     with:
+       version:
+         2.11.32
     - name: Attest Docker image
       run: |
         IMAGE_NAME="ghcr.io/${IMAGE}:latest"
@@ -138,11 +138,11 @@ Your workflow already generates an SBOM using Anchore. Let's attest it by adding
 Add these steps after the "Generate SBOM for the docker image" step:
 
 ```yaml
-      - name: Setup Kosli CLI
-        uses: kosli-dev/setup-cli-action@v2
-        with:
-          version:
-            2.11.32
+   - name: Setup Kosli CLI
+     uses: kosli-dev/setup-cli-action@v2
+     with:
+       version:
+         2.11.32
     - name: Attest SBOM
       run: |
         IMAGE_NAME="ghcr.io/${IMAGE}:latest"
