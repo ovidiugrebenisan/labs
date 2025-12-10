@@ -33,7 +33,7 @@ jobs:
         run: |
           kosli create flow ${APP_NAME}-pipeline \
             --description "CI/CD pipeline for ${APP_NAME} application" \
-            --template-file flow-update.yaml
+            --template-file flow-template.yaml
 
       - name: Begin Trail
         run: |
